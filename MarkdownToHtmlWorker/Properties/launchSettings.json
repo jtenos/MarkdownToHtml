@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MarkdownToHtmlWorker": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Temp"
+    }
+  }
+}
