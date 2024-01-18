@@ -55,17 +55,24 @@ public class MarkdownConverter
         {
             string html = Markdown.ToHtml(File.ReadAllText(file.FullName), _pipeline);
 
-            html = $"""
+            html = $$"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Path.GetFileNameWithoutExtension(file.Name)}</title>
+    <title>{{Path.GetFileNameWithoutExtension(file.Name)}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body { margin: 40px 0 0 40px; }
+        table thead tr { background-color: #777; color: #fff; }
+        table tr:nth-child(even) { background-color: #eee; }
+        table td, table th { padding: 5px 10px; border: 1px solid #777; }
+    </style>
 </head>
 <body>
-    {html}
+    {{html}}
 </body>
 </html>
 """;
